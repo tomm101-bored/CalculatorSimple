@@ -11,7 +11,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: rgb(153, 153, 153);
+            background-color: white;
+        }
+        .container {
+            display: flex;
+            align-items: center;
         }
         .calculator {
             display: grid;
@@ -31,31 +35,47 @@
         button {
             cursor: pointer;
         }
+        .image-container {
+            margin-left: 20px;
+        }
+        .image-container img {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
 
-<div class="calculator">
-    <input type="text" class="output" id="output" disabled />
-    <button onclick="press('1')">1</button>
-    <button onclick="press('2')">2</button>
-    <button onclick="press('3')">3</button>
-    <button onclick="operate('+')">+</button>
-    
-    <button onclick="press('4')">4</button>
-    <button onclick="press('5')">5</button>
-    <button onclick="press('6')">6</button>
-    <button onclick="operate('-')">-</button>
-    
-    <button onclick="press('7')">7</button>
-    <button onclick="press('8')">8</button>
-    <button onclick="press('9')">9</button>
-    <button onclick="operate('*')">*</button>
-    
-    <button onclick="press('0')">0</button>
-    <button onclick="clearOutput()">C</button>
-    <button onclick="calculate()">=</button>
-    <button onclick="operate('/')">/</button>
+<div class="container">
+    <div class="calculator">
+        <input type="text" class="output" id="output" disabled />
+        <button onclick="press('1')">1</button>
+        <button onclick="press('2')">2</button>
+        <button onclick="press('3')">3</button>
+        <button onclick="operate('+')">+</button>
+        
+        <button onclick="press('4')">4</button>
+        <button onclick="press('5')">5</button>
+        <button onclick="press('6')">6</button>
+        <button onclick="operate('-')">-</button>
+        
+        <button onclick="press('7')">7</button>
+        <button onclick="press('8')">8</button>
+        <button onclick="press('9')">9</button>
+        <button onclick="operate('*')">*</button>
+        
+        <button onclick="press('0')">0</button>
+        <button onclick="clearOutput()">C</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="operate('/')">/</button>
+    </div>
+
+    <!-- Image next to the calculator -->
+    <div class="image-container">
+        <!-- Replace 'image.jpg' with the path to your image file -->
+        <img src="https://i.pinimg.com/236x/4a/ce/02/4ace02e941f22ae9c44d354400dd6b0c.jpg" alt="Small picture" />
+    </div>
 </div>
 
 <script>
@@ -110,3 +130,4 @@
 
 </body>
 </html>
+
