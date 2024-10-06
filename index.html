@@ -66,14 +66,15 @@
         <button onclick="operate('*')">*</button>
         
         <button onclick="press('0')">0</button>
-        <button onclick="clearOutput()">C</button>
+        <button onclick="negate()">+/-</button>
         <button onclick="calculate()">=</button>
         <button onclick="operate('/')">/</button>
+        
+        <button onclick="clearOutput()">C</button> <!-- Clear button -->
     </div>
 
     <!-- Image next to the calculator -->
     <div class="image-container">
-        <!-- Replace 'image.jpg' with the path to your image file -->
         <img src="https://i.pinimg.com/236x/4a/ce/02/4ace02e941f22ae9c44d354400dd6b0c.jpg" alt="Small picture" />
     </div>
 </div>
@@ -89,10 +90,19 @@
     }
 
     function operate(op) {
-        if (firstOperand === null) {
-            firstOperand = parseFloat(currentInput);
+        if (currentInput !== '') {
+            if (firstOperand === null) {
+                firstOperand = parseFloat(currentInput);
+            } else {
+                calculate();
+                firstOperand = parseFloat(document.getElementById('output').value);
+            }
             operator = op;
             currentInput = '';
+        } else if (op === '-' && currentInput === '') {
+            // Allow negative numbers by entering the minus sign first
+            currentInput = '-';
+            document.getElementById('output').value = currentInput;
         }
     }
 
@@ -125,6 +135,18 @@
         firstOperand = null;
         operator = '';
         document.getElementById('output').value = '';
+    }
+
+    function negate() {
+        // Toggle between positive and negative for the current input
+        if (currentInput) {
+            if (currentInput.startsWith('-')) {
+                currentInput = currentInput.substring(1); // Remove the negative sign
+            } else {
+                currentInput = '-' + currentInput; // Add the negative sign
+            }
+            document.getElementById('output').value = currentInput;
+        }
     }
 </script>
 
